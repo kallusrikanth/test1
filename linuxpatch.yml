@@ -6,7 +6,7 @@
 
     - name: Removing rpms
       shell: rpm -e --nodeps libreport-plugin-rhtsupport-2.* centos-release-6-5.el6.centos.11.1.x86_64
-      ignore_error: yes 
+      ignore_errors: yes 
       
     - name: yum upgrade
       command:  yum upgrade --y
