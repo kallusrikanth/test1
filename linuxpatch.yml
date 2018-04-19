@@ -5,7 +5,7 @@
       command: 'subscription-manager register --force --org="acxiom" --name="{{ inventory_hostname  }}" --activationkey="oracle6.9"'
 
     - name: Removing rpms
-      shell: rpm -e --nodeps libreport-plugin-rhtsupport-2.* centos-release-6-5.el6.centos.11.1.x86_64
+      shell: yum remove libreport-plugin-rhtsupport-2.* centos-release-6-5.el6.centos.11.1.x86_64
       ignore_errors: yes 
       
     - name: yum upgrade
