@@ -8,7 +8,7 @@
       shell: rpm -e --nodeps libreport-plugin-rhtsupport-2.* centos-release-6-5.el6.centos.11.1.x86_64
       
     - name: yum upgrade
-      command:  yum upgrade --yes
+      command:  yum upgrade --y
       
       
 
