@@ -9,7 +9,7 @@
       ignore_errors: yes 
       
     - name: yum upgrade
-      command:  yum upgrade --y
+      command:  yum upgrade -y
       
       
 
