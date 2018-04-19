@@ -1,0 +1,16 @@
+- name: Patching System
+  hosts: all
+  tasks:
+    - name: Update patch version
+      command: 'subscription-manager register --force --org="acxiom" --name="{{ inventory_hostname  }}" --activationkey="oracle6.9"'
+
+    - name: Removing rpms
+      command: "rpm -e --nodeps libreport-plugin-rhtsupport-2.* && rpm -e --nodeps centos-release-6-5.el6.centos.11.1.x86_64 && yum upgrade"
+
+    - name: Reboot
+      shell: reboot
+      async: 0
+      poll: 0
+  
+    - name: Wait for host to come back
+      local_action: wait_for host={{ ansible_ssh_host }} state=started
